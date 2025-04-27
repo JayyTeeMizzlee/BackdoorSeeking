@@ -1,3 +1,28 @@
 # BackdoorSeeking
-Currently a demo for a working vulnerability scanner.
-This application should not only be able to scan for open port but also be able to webcrawl a website in order to find abnormalities. 
+The Backdoor Seeker is a lightweight vulnerability scanner designed to perform basic discovery and enumeration of a target system.
+It currently scans for open TCP ports, grabs service banners, and attempts basic OS fingerprinting.
+
+What can it currently do?
+- Hostname Resolution: Converts domain names to IP addresses.
+- TCP Port Scanning: Scans ports 1 to 1024 to find open services.
+- Service Banner Grabbing: Connects to open ports and captures banners.
+- Basic OS Fingerprinting: Estimates the operating system using TTL analysis.
+- Command-Line Interface (CLI): Easy-to-use argument system.
+
+How to run this script (3 Steps)
+- Step 1. Open terminal.
+- Step 2. Navigate to where the project directory was saved.
+- Step 3. Running the script.
+        Enter "python3 main.py --target scanme.nmap.org --scan ports"
+
+FUTURE FEATURES
+- Web crawling for backdoor detection.
+- Integration with Metasploit for automatic exploitation.
+- Save scan results to JSON report files.
+
+Requirements
+Python 3 and up.
+
+Some legal testing targets
+- scanme.nmap.org
+- localhost
