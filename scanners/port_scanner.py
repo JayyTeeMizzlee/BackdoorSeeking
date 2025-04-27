@@ -1,16 +1,11 @@
-import nmap
+# Detects opens that are open or responds 
+import socket
 
-def scan_ports(target,ports):
-    net_map = nmap.PortScanner()
-    string = []
-
-    for i in ports:
-        string.append(str(i))
-    
-    port_string = ','.join(string)
-    print(port_string)
-
-    print(f"[*] Scanning ports on {target} ====> {port_string}")
-    net_map.scan(hosts=target, ports=port_string)
-
-    re
+def scan_ports(ip, ports=[21, 22, 80, 443, 8080], timeout=2):
+    open_ports = []
+    for port in ports:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.settimeout(timeout)
+            if s.connect_ex((ip, port)) == 0:
+                open_ports.append(port)
+    return open_ports
