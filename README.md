@@ -10,10 +10,20 @@ What can it currently do?
 - Command-Line Interface (CLI): Easy-to-use argument system.
 
 How to run this script (3 Steps)
-- Step 1. Open terminal.
-- Step 2. Navigate to where the project directory was saved.
-- Step 3. Running the script.
-        Enter "python3 main.py --target scanme.nmap.org --scan ports"
+- Step 1. 
+        Open terminal.
+- Step 2. 
+        git clone https://github.com/yourusername/BackdoorSeeker.git
+        cd BackdoorSeeker
+- Step 3. 
+        python3 -m venv venv
+        source venv/bin/activate
+- Step 4.
+        pip install -r requirements.txt
+        playwright install
+- Step 5. 
+        Running the script.
+        Enter "python3 main.py --target scanme.nmap.org --scan (ports, web, or both)"
 
 FUTURE FEATURES
 - Web crawling for backdoor detection.

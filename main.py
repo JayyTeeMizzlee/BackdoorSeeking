@@ -3,6 +3,7 @@ from scanners.host_resolver import resolve_hostname
 from scanners.port_scanner import scan_ports
 from scanners.banner_grabber import grab_banner
 from scanners.fingerprint import fingerprint_os
+from scanners.web_scanner import run_scrapy_scan, run_playwright_scan
 
 def main():
     parser = argparse.ArgumentParser(prog="BackDoorSeeker", description="Vulnerability Scanner")
@@ -42,5 +43,24 @@ def main():
         else:
             print("[-] No open ports detected.")
 
+    if args.scan in ("web", "both"):
+        
+        # Scrapy's Scan
+        print("\n[+] Starting static web scan...")
+        scrapy_results = run_scrapy_scan(f"http://{args.target}")
+        print(f"[+] Scrapy: {len(scrapy_results['urls'])} URLs found")
+        for s in scrapy_results["suspicious"]:
+            print(f"[!] Scrapy Suspicious Path: {s}")
+
+        # Playwrights scan
+        print("\n[+] Starting dynamic web scan...")
+        playwright_results = run_playwright_scan(f"http://{args.target}")
+        print(f"[+] Playwright: {len(playwright_results['dynamic_urls'])} URLs found")
+        for s in playwright_results["suspicious"]:
+            print(f"[!] Playwright Suspicious Path: {s}")
+
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\n[ ] Now Leaving scan..")
