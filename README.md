@@ -8,6 +8,8 @@ What can it currently do?
 - Service Banner Grabbing: Connects to open ports and captures banners.
 - Basic OS Fingerprinting: Estimates the operating system using TTL analysis.
 - Command-Line Interface (CLI): Easy-to-use argument system.
+- Web crawling for backdoor detection.
+- Integration with Metasploit for automatic exploitation.
 
 How to run this script (3 Steps)
 - Step 1. 
@@ -25,9 +27,10 @@ How to run this script (3 Steps)
         Running the script.
         Enter "python3 main.py --target scanme.nmap.org --scan (ports, web, or both)"
 
+OPTIONAL
+- To use the feature of exploit lookups please install the Metasploit Framework manually by using (bash/brew) install metasploit
+
 FUTURE FEATURES
-- Web crawling for backdoor detection.
-- Integration with Metasploit for automatic exploitation.
 - Save scan results to JSON report files.
 
 Requirements
