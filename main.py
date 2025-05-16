@@ -3,6 +3,7 @@ from scanners.host_resolver import resolve_hostname
 from scanners.port_scanner import scan_ports
 from scanners.banner_grabber import grab_banner
 from scanners.fingerprint import fingerprint_os
+from scanners.exploit_lookup import check_metasploit
 from scanners.web_scanner import run_scrapy_scan, run_playwright_scan
 
 def main():
@@ -24,7 +25,7 @@ def main():
     assumed_os = fingerprint_os(ip)
     print(f"[+] Operating System: {assumed_os}")
 
-
+# Ports
     if args.scan in ("ports", "both"):
     
         test_ports = list(range(1, 1025))  
@@ -38,11 +39,18 @@ def main():
                 banner = grab_banner(ip, port)
                 if banner:
                     print(f"[Port {port}] Banner: {banner}")
+                    service = banner.lower().split("-")[0].split("/")[0].strip()
+                    exploits = check_metasploit(service)
+                    if exploits:
+                        print(f"[+] Metasploit results for '{service}':")
+                        for e in exploits:
+                            print(f"    - {e}")
                 else:
                     print(f"[Port {port}] No banner retrieved.")
         else:
             print("[-] No open ports detected.")
 
+# Web
     if args.scan in ("web", "both"):
         
         # Scrapy's Scan
