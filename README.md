@@ -10,6 +10,7 @@ What can it currently do?
 - Command-Line Interface (CLI): Easy-to-use argument system.
 - Web crawling for backdoor detection.
 - Integration with Metasploit for automatic exploitation.
+- Save scan results to JSON report files.
 
 How to run this script (3 Steps)
 - Step 1. 
@@ -31,7 +32,7 @@ OPTIONAL
 - To use the feature of exploit lookups please install the Metasploit Framework manually by using (bash/brew) install metasploit
 
 FUTURE FEATURES
-- Save scan results to JSON report files.
+- N/A
 
 Requirements
 Python 3 and up.

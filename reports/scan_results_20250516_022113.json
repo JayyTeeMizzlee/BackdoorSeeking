@@ -1,0 +1,27 @@
+{
+    "target": "scanme.nmap.org",
+    "ip": "45.33.32.156",
+    "os_fingerprint": "Linux/Unix (TTL ~64)",
+    "open_ports": [
+        {
+            "port": 22,
+            "banner": "SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.13",
+            "metasploit_exploits": [
+                "[!] No matching exploits found."
+            ]
+        },
+        {
+            "port": 80,
+            "banner": null,
+            "metasploit_exploits": []
+        }
+    ],
+    "scrapy_results": {
+        "total_urls": 6220,
+        "suspicious": []
+    },
+    "playwright_results": {
+        "total_urls": 1,
+        "suspicious": []
+    }
+}
